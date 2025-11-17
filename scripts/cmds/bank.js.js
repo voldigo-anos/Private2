@@ -99,12 +99,7 @@ module.exports = {
 	onStart: async function ({ message, args, event, usersData, threadsData, getLang, api }) {
 		const { senderID, threadID } = event;
 		const command = args[0]?.toLowerCase();
-
-		// Initialize bankData if it doesn't exist
-		if (!global.db.bankData) {
-			const { bankData } = require('../../database/controller');
-			global.db.bankData = bankData;
-		}
+		
 
 		const bankData = global.db.bankData;
 
