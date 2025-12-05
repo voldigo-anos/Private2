@@ -16,11 +16,11 @@ async function generatePinterestCanvas(imageObjects, query, page, totalPages) {
   ctx.fillStyle = '#ffffff';
   ctx.font = '24px Arial';
   ctx.textAlign = 'left';
-  ctx.fillText('🔍 Pinterest Searcher', 20, 45);
+  ctx.fillText('🔍 Recherche Pinterest', 20, 45);
 
   ctx.font = '16px Arial';
   ctx.fillStyle = '#b0b0b0';
-  ctx.fillText(`Search results of "${query}", Showing up to ${imageObjects.length} images.`, 20, 75);
+  ctx.fillText(`Résultats de recherche pour "${query}", affichant jusqu'à ${imageObjects.length} images.`, 20, 75);
 
   const numColumns = 3;
   const padding = 15;
@@ -32,7 +32,7 @@ async function generatePinterestCanvas(imageObjects, query, page, totalPages) {
       loadImage(obj.url)
         .then(img => ({ img, originalIndex: obj.originalIndex, url: obj.url }))
         .catch(e => {
-          console.error(`Failed to load image: ${obj.url}`, e && e.message);
+          console.error(`Impossible de charger l'image : ${obj.url}`, e && e.message);
           return null;
         })
     )
@@ -43,7 +43,7 @@ async function generatePinterestCanvas(imageObjects, query, page, totalPages) {
   if (successful.length === 0) {
     ctx.fillStyle = '#ff6666';
     ctx.font = '16px Arial';
-    ctx.fillText(`No images could be loaded for this page.`, 20, 110);
+    ctx.fillText(`Aucune image n'a pu être chargée pour cette page.`, 20, 110);
     const outputPath = path.join(__dirname, 'cache', `pinterest_page_${Date.now()}.png`);
     await fs.ensureDir(path.dirname(outputPath));
     const buffer = canvas.toBuffer('image/png');
@@ -111,15 +111,15 @@ module.exports = {
     author: "Christus",
     countDown: 10,
     role: 0,
-    shortDescription: "Search Pinterest for images",
-    longDescription: "Search Pinterest for images, with canvas view for Browse.",
+    shortDescription: "Rechercher des images sur Pinterest",
+    longDescription: "Recherche des images sur Pinterest, avec un aperçu en canvas pour naviguer.",
     category: "Image",
     guide: {
-      en: "{pn} query [-count]\n" +
-        "• If count is used, it sends images directly.\n" +
-        "• If no count, it shows an interactive canvas.\n" +
-        "• Example: {pn} cute cat -5 (direct send)\n" +
-        "• Example: {pn} anime wallpaper (canvas view)"
+      en: "{pn} requête [-count]\n" +
+        "• Si count est utilisé, les images sont envoyées directement.\n" +
+        "• Sans count, une vue canvas interactive s'affiche.\n" +
+        "• Exemple : {pn} cute cat -5 (envoi direct)\n" +
+        "• Exemple : {pn} anime wallpaper (vue canvas)"
     }
   },
 
@@ -134,17 +134,17 @@ module.exports = {
       }
       const query = args.join(" ").trim();
       if (!query) {
-        return message.reply("Please provide a search query.");
+        return message.reply("Veuillez fournir une requête de recherche.");
       }
 
-      processingMessage = await message.reply("🔍 Searching on Pinterest...");
+      processingMessage = await message.reply("🔍 Recherche sur Pinterest...");
 
       const res = await axios.get(`https://egret-driving-cattle.ngrok-free.app/api/pin?query=${encodeURIComponent(query)}&num=90`);
       const allImageUrls = res.data.results || [];
 
       if (allImageUrls.length === 0) {
         if (processingMessage) await message.unsend(processingMessage.messageID).catch(() => { });
-        return message.reply(`No images found for "${query}".`);
+        return message.reply(`Aucune image trouvée pour "${query}".`);
       }
 
       if (count) {
@@ -152,10 +152,10 @@ module.exports = {
         const streams = await Promise.all(urls.map(url => getStreamFromURL(url).catch(() => null)));
         const validStreams = streams.filter(s => s);
 
-        if (processingMessage) await message.unsend(processingMessage.messageID).catch(() => { });
+        if (processingMessage) await message.unsend(processagingMessage.messageID).catch(() => { });
 
         return message.reply({
-          body: `Here are ${validStreams.length} image(s) for "${query}":`,
+          body: `Voici ${validStreams.length} image(s) pour "${query}" :`,
           attachment: validStreams
         });
 
@@ -172,7 +172,7 @@ module.exports = {
         const { outputPath: canvasPath, displayedMap } = await generatePinterestCanvas(imagesForPage1, query, 1, totalPages);
 
         const sentMessage = await message.reply({
-          body: `🖼️ Found ${allImageUrls.length} images for "${query}".\nReply with a number (shown on canvas) to get that image, or "next" for more.`,
+          body: `🖼️ ${allImageUrls.length} images trouvées pour "${query}".\nRépondez avec un numéro (affiché sur le canvas) pour obtenir l’image, ou “next” pour plus.`,
           attachment: fs.createReadStream(canvasPath)
         });
 
@@ -200,13 +200,13 @@ module.exports = {
       if (processingMessage) {
         try { await message.unsend(processingMessage.messageID); } catch (e) { }
       }
-      message.reply("An error occurred. The server or API might be down.");
+      message.reply("Une erreur est survenue. Le serveur ou l'API peut être indisponible.");
     }
   },
 
   onReply: async function({ api, event, message, Reply }) {
     try {
-      if (!Reply) return message.reply("Session expired. Please run the command again.");
+      if (!Reply) return message.reply("Session expirée. Veuillez relancer la commande.");
 
       const { author, allImageUrls, query, imagesPerPage, currentPage, totalPages, displayedMap, displayCount } = Reply;
       if (event.senderID !== author) return;
@@ -215,7 +215,7 @@ module.exports = {
 
       if (input === 'next') {
         if (currentPage >= totalPages) {
-          return message.reply("This is the last page of results.");
+          return message.reply("Vous êtes déjà sur la dernière page des résultats.");
         }
         const nextPage = currentPage + 1;
         const startIndex = (nextPage - 1) * imagesPerPage;
@@ -226,11 +226,11 @@ module.exports = {
           originalIndex: startIndex + idx
         }));
 
-        const processingMessage = await message.reply(`Loading page ${nextPage}...`);
+        const processingMessage = await message.reply(`Chargement de la page ${nextPage}...`);
         const { outputPath: canvasPath, displayedMap: nextDisplayedMap } = await generatePinterestCanvas(imagesForNextPage, query, nextPage, totalPages);
 
         const sentMessage = await message.reply({
-          body: `🖼️ Page ${nextPage}/${totalPages}.\nReply with a number (shown on canvas) to get that image, or "next" for more.`,
+          body: `🖼️ Page ${nextPage}/${totalPages}.\nRépondez avec un numéro (du canvas) pour obtenir l’image, ou “next” pour continuer.`,
           attachment: fs.createReadStream(canvasPath)
         });
         fs.unlink(canvasPath, (err) => {
@@ -255,31 +255,31 @@ module.exports = {
         const number = parseInt(input, 10);
         if (!isNaN(number) && number > 0) {
           if (!Array.isArray(displayedMap) || typeof displayCount !== 'number') {
-            return message.reply("This page's images aren't available anymore. Please run the command again or type 'next'.");
+            return message.reply("Les images de cette page ne sont plus disponibles. Relancez la commande ou tapez “next”.");
           }
 
           if (number > displayCount) {
-            return message.reply(`Invalid number. The current canvas shows only ${displayCount} image(s). Choose a number from 1 to ${displayCount}, or type "next" to load more images.`);
+            return message.reply(`Numéro invalide. Le canvas actuel affiche seulement ${displayCount} image(s). Choisissez un numéro de 1 à ${displayCount}, ou tapez “next” pour charger plus.`);
           }
 
           const originalIndex = displayedMap[number - 1];
           if (originalIndex == null || originalIndex < 0 || originalIndex >= allImageUrls.length) {
-            return message.reply(`Could not find that image. Please try again or request a different number.`);
+            return message.reply(`Impossible de trouver cette image. Réessayez avec un autre numéro.`);
           }
           const imageUrl = allImageUrls[originalIndex];
           const stream = await getStreamFromURL(imageUrl).catch(() => null);
-          if (!stream) return message.reply("Failed to fetch the requested image.");
+          if (!stream) return message.reply("Impossible de récupérer l'image demandée.");
           await message.reply({
-            body: `Image #${number} for query "${query}":`,
+            body: `Image #${number} pour la requête "${query}" :`,
             attachment: stream
           });
         } else {
-          return message.reply(`Reply with a number (from the canvas) to get that image, or "next" for more pages.`);
+          return message.reply(`Répondez avec un numéro (du canvas) pour obtenir l’image, ou “next” pour charger d’autres pages.`);
         }
       }
     } catch (error) {
       console.error(error);
-      message.reply("An error occurred while handling your reply.");
+      message.reply("Une erreur est survenue lors du traitement de votre réponse.");
     }
   }
 };
