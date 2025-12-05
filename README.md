@@ -1,93 +1,82 @@
-<img src="https://i.ibb.co/RQ28H2p/banner.png" alt="banner">
-<h1 align="center"><img src="./dashboard/images/logo-non-bg.png" width="22px"> Goat Bot V2 - Bot Chat Messenger</h1>
+![MasterHead](https://i.pinimg.com/originals/90/70/32/9070324cdfc07c68d60eed0c39e77573.gif)
+<h1 align="center">Hello <img src="https://user-images.githubusercontent.com/44104676/173990923-48b66056-0bff-472a-b5bf-faab4146e950.gif" height="40"> I'm Christus</h1>
 
+<!-- Typing SVG -->
 <p align="center">
-	<a href="https://nodejs.org/dist/v16.20.0">
-		<img src="https://img.shields.io/badge/Nodejs%20Support-16.x-brightgreen.svg?style=flat-square" alt="Nodejs Support v16.x">
-	</a>
-  <img alt="size" src="https://img.shields.io/github/repo-size/ntkhang03/Goat-Bot-V2.svg?style=flat-square&label=size">
-  <img alt="code-version" src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=code%20version&prefix=v&query=%24.version&url=https://github.com/ntkhang03/Goat-Bot-V2/raw/main/package.json&style=flat-square">
-  <img alt="visitors" src="https://visitor-badge.laobi.icu/badge?style=flat-square&page_id=ntkhang3.Goat-Bot-V2">
-  <img alt="size" src="https://img.shields.io/badge/license-MIT-green?style=flat-square&color=brightgreen">
+  <a href="https://github.com/voldigo-anos">
+    <img src="https://readme-typing-svg.herokuapp.com?size=24&duration=4000&color=06D6A0&center=true&vCenter=true&lines=Hello,+I'm+Christus+Ivqn!;Full+Stack+Web+Developer!" alt="Typing SVG" />
+  </a>
 </p>
 
-- [💠 **Role System**](#-role-system)
-- [📝 **Note**](#-note)
-- [🚧 **Requirement**](#-requirement)
-- [📝 **Tutorial**](#-tutorial)
-- [💡 **How it works?**](#-how-it-works)
-- [🔔 **How to get notification when have new update?**](#-how-to-get-notification-when-have-new-update)
-- [🆙 **How to Update**](#-how-to-update)
-- [🛠️ **How to create new commands**](#️-how-to-create-new-commands)
-- [💭 **Support**](#-support)
-- [📚 **Support Languages in source code**](#-support-languages-in-source-code)
-- [📌 **Common Problems**](#-common-problems)
-- [❌ **DO NOT USE THE ORIGINAL UNDERGRADUATE VERSION**](#-do-not-use-the-original-undergraduate-version)
-- [📸 **Screenshots**](#-screenshots)
-- [✨ **Copyright (C)**](#-copyright-c)
-- [📜 **License**](#-license)
+---
+## 🛠️ Tech Stack
 
-<hr>
-
-## 💠 **Role System**
-| Role | Badges | Role User             | Permissions & Access            |
-|-------|-------|---------------------|--------------------------------|
-| 0     | 👥    | Regular User         | Can use standard bot commands  |
-| 1     | 🎭    | Group Moderator      | Manage group chats & members   |
-| 2     | 🪩   | VIP Member           | Access special VIP commands    |
-| 3     | 👤    | Bot Administrator    | Configure commands & bot events|
-| 4     | 👨‍💻    | System Developer     | Full control of the bot system |
-
-## 📝 **Note**
-- This is a messenger chat bot using a personal account, using an [unofficial api](https://github.com/ntkhang03/fb-chat-api/blob/master/DOCS.md) ([Origin here](https://github.com/Schmavery/facebook-chat-api)) and this may lead to facebook account being locked due to spam or other reasons. 
-- So, I recommend using a clone account (one that you're willing to throw away at any time)
-- ***I am not responsible for any problems that may arise from using this bot.***
-
-## 🚧 **Requirement**
-- Node.js 16.x [Download](https://nodejs.org/dist/v16.20.0) | [Home](https://nodejs.org/en/download/) | [Other versions](https://nodejs.org/en/download/releases/)
-- Knowledge of **programming**, javascript, nodejs, unofficial facebook api
-
-## 📝 **Tutorial**
-Tutorial has been uploaded on YouTube
-- For mobile phone: https://www.youtube.com/watch?v=grVeZ76HlgA
-- For vps/windows: https://www.youtube.com/watch?v=uCbSYNQNEwY
-  
-Summary instructions:
-- See [here](https://github.com/ntkhang03/Goat-Bot-V2/blob/main/STEP_INSTALL.md)
+<table>
+  <tr>
+    <td><strong>💻 Languages</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=cpp,java,c,js,ts&theme=dark"></td>
+  </tr>
+  <tr>
+    <td><strong>🗃️ Databases</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=mysql,mongodb&theme=dark"></td>
+  </tr>
+  <tr>
+    <td><strong>🌐 Frontend</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=html,css,react,nextjs,redux,tailwind&theme=dark"></td>
+  </tr>
+  <tr>
+    <td><strong>🧰 Backend</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=nodejs,express,postman&theme=dark"></td>
+  </tr>
+  <tr>
+    <td><strong>☁️ Deployment</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=vercel,netlify,aws&theme=dark"></td>
+  </tr>
+  <tr>
+    <td><strong>🛠 DevOps</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=docker,kubernetes,git,github,jenkins&theme=dark"></td>
+  </tr>
+  <tr>
+    <td><strong>🎨 Design</strong></td>
+    <td><img height="40" src="https://skillicons.dev/icons?i=figma,canva&theme=dark"></td>
+  </tr>
+</table>
 
 
+## 📊 GitHub Stats
 
-## 💡 **How it works?**
-- The bot uses the unofficial facebook api to send and receive messages from the user.
-- When having a `new event` (message, reaction, new user join, user leave chat box,...) the bot will emit an event to the `handlerEvents`.
-- The `handlerEvents` will handle the event and execute the command:
-  - `onStart`:
-    - the handler will check if user `call a command or not`.
-    - if yes, it will check if `user banned` or mode `admin box only is turned on` or not, if not, it will execute the command.
-    - next, it will check the `permission` of the user.
-    - next, it will check if the `countdown` of command is over or not.
-    - finally, it will execute the command and `log` information to the console.
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=NitinSemwal2605&theme=midnight-purple&show_icons=true&hide=issues" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=NitinSemwal2605&layout=compact&theme=midnight-purple" width="48%" />
+</p>
 
-  - `onChat`:
-    - the handler will run `when the user sends a message`.
-    - it will check `permission` of the user.
-    - the handler will `execute` the command, if it return a `function` or `async function` then it willl check `user banned` or mode `admin box only is turned on` or not, if not, it will call the function and `log` information to the console.
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=NitinSemwal2605&theme=midnight-purple" width="48%" />
+  <img src="https://github-profile-trophy.vercel.app/?username=NitinSemwal2605&theme=radical&no-frame=true&no-bg=true&row=1&column=6" width="48%" />
+</p>
 
-  - `onFirstChat`:
-    - the handler will run `when get the first message` from the chat box since the bot started.
-    - the way it works is like `onChat`.
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=NitinSemwal2605&theme=react-dark&hide_border=true&area=true" width="95%"/>
+</p>
 
-  - `onReaction`:
-    - the handler will run when the user `reacts` to a `message has messageID` is set in `GoatBot.onReaction` as follows:
-		```javascript
-		// example:	
-		global.GoatBot.onReaction.set(msg.messageID, {
-			messageID: msg.messageID,
-			commandName,
-			// ... and more
-		});
-		```
-    - the handler will automatically add method `delete`, if this method is called, it will delete the message from the set.
+## 🔥 Profile Views
+
+ <p align="center">
+  <img width="400px" src="https://count.getloli.com/get/@nazrul4x?theme=rule34"></img>
+</p>
+
+#
+
+<br clear="both">
+
+<img src="https://raw.githubusercontent.com/nazrul4x/nazrul4x/output/snake.svg" alt="Snake animation" />
+
+###
+---
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=AJAmran&label=Profile%20Views&color=06D6A0&style=flat" />
+</p>
     - next, it will check `permission` of the user and `execute` if the user has permission and `log` information to the console.
 
   - `onReply`:
