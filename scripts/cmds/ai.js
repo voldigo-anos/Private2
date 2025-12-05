@@ -7,7 +7,7 @@ const u_text = "http://65.109.80.126:20409/aryan/gemini";
 module.exports = {
   config: {
     name: "gemini",
-    aliases: ["ai", "chat"],
+    aliases: ["chat"],
     version: "0.0.2",
     author: "ArYAN",
     countDown: 3,
