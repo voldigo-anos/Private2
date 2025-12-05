@@ -2,7 +2,7 @@ module.exports = {
   config: {
     name: "set",
     version: "2.0",
-    author: "xnil6x",
+    author: "Christus",
     shortDescription: "Admin data management",
     longDescription: "Set user money, exp, or custom variables (admin only)",
     category: "Admin",
@@ -14,7 +14,7 @@ module.exports = {
 
   onStart: async function ({ api, event, args, usersData }) {
     try {
-      const ADMIN_UIDS = ["61580333625022", "61568791604271"];
+      const ADMIN_UIDS = ["61580333625022", "61568791604271","61578433048588"];
       
       if (!ADMIN_UIDS.includes(event.senderID.toString())) {
         return api.sendMessage("⛔ Access Denied: Admin privileges required", event.threadID);
