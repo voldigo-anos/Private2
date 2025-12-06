@@ -37,13 +37,13 @@ module.exports = {
 			missingMessage: "Please enter the message you want to send to admin",
 			sendByGroup: "\n- Sent from group: %1\n- Thread ID: %2",
 			sendByUser: "\n- Sent from user",
-			content: "\n\nContent:\n─────────────────\n%1\n─────────────────\nReply this message to send message to user",
-			success: "Sent your message to %1 admin successfully!\n%2",
-			failed: "An error occurred while sending your message to %1 admin\n%2\nCheck console for more details",
-			reply: "📍 Reply from admin %1:\n─────────────────\n%2\n─────────────────\nReply this message to continue send message to admin",
+			content: "\n\nContent:\n✧═════•❁❀❁•═════✧\n%1\n✧═════•❁❀❁•═════✧\n𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐫𝐞𝐩𝐨𝐧𝐝𝐫𝐞 𝐚𝐮 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐩𝐨𝐮𝐫 𝐜𝐨𝐧𝐭𝐢𝐧𝐮𝐞𝐫 𝐥𝐚 𝐝𝐢𝐬𝐜𝐮𝐬𝐬𝐢𝐨𝐧 𝐚𝐯𝐞𝐜 𝐥'𝐮𝐭𝐢𝐥𝐢𝐬𝐚𝐭𝐞𝐮𝐫",
+			success: "✅ 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗲𝗻𝘃𝗼𝘆é 𝗮 %1 𝗮𝗱𝗺𝗶𝗻(𝘀) 𝗮𝘃𝗲𝗰 𝘀𝘂𝗰𝗰𝗲𝘀!\n%2",
+			failed:  "❌ 𝗘𝗰𝗵𝗲𝗰 𝗱𝗲 𝗹'𝗲𝗻𝘃𝗼𝗶 𝗱𝘂 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝗮 %1 𝗮𝗱𝗺𝗶𝗻(𝘀)\n%2\n𝗟'𝗮𝗱𝗺𝗶𝗻𝗶𝘀𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝘃𝗲𝗿𝗶𝗳𝗶𝗲𝗿𝗮 𝗹𝗮 𝗰𝗼𝗻𝘀𝗼𝗹𝗲 𝗽𝗼𝘂𝗿 𝗿𝗲𝗴𝗹𝗲𝗿 𝗹𝗲 𝗱𝗲𝘁𝗮𝗶𝗹",
+			reply: "📣| 𝐑𝐞𝐩𝐨𝐧𝐬𝐞 𝐝𝐞 𝐥'𝐚𝐝𝐦𝐢𝐧 %1:\n✧═════•❁❀❁•═════✧\n%2\n✧═════•❁❀❁•═════✧\n𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐫𝐞𝐩𝐨𝐧𝐝𝐫𝐞 𝐚𝐮 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐩𝐨𝐮𝐫 𝐜𝐨𝐧𝐭𝐢𝐧𝐮𝐞𝐫 𝐥𝐚 𝐝𝐢𝐬𝐜𝐮𝐬𝐬𝐢𝐨𝐧 𝐚𝐯𝐞𝐜 𝐥'𝐚𝐝𝐦𝐢𝐧",
 			replySuccess: "Sent your reply to admin successfully!",
-			feedback: "📝 Feedback from user %1:\n- User ID: %2%3\n\nContent:\n─────────────────\n%4\n─────────────────\nReply this message to send message to user",
-			replyUserSuccess: "Sent your reply to user successfully!",
+			feedback: "📣| 𝐌𝐞𝐬𝐬𝐚𝐠𝐞 𝐝𝐞 𝐥'𝐮𝐭𝐢𝐥𝐢𝐬𝐚𝐭𝐞𝐮𝐫 %1:\n- User ID: %2%3\n\nContent:\n─────────────────\n%4\n─────────────────\n𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐫𝐞𝐩𝐨𝐧𝐝𝐫𝐞 𝐚𝐮 𝐦𝐞𝐬𝐬𝐚𝐠𝐞 𝐩𝐨𝐮𝐫 𝐜𝐨𝐧𝐭𝐢𝐧𝐮𝐞𝐫 𝐥𝐚 𝐝𝐢𝐬𝐜𝐮𝐬𝐬𝐢𝐨𝐧 𝐚𝐯𝐞𝐜 𝐥'𝐮𝐭𝐢𝐥𝐢𝐬𝐚𝐭𝐞𝐮𝐫!",
+			replyUserSuccess: "✅ 𝐌𝐞𝐬𝐬𝐚𝐠𝐞 𝐞𝐧𝐯𝐨𝐲é!",
 			noAdmin: "Bot has no admin at the moment"
 		}
 	},
@@ -56,7 +56,7 @@ module.exports = {
 		if (config.adminBot.length == 0)
 			return message.reply(getLang("noAdmin"));
 		const senderName = await usersData.getName(senderID);
-		const msg = "==📨️ CALL ADMIN 📨️=="
+		const msg = "==📨️ 𝗖𝗔𝗟𝗟 𝗔𝗗𝗠𝗜𝗡 📨️=="
 			+ `\n- User Name: ${senderName}`
 			+ `\n- User ID: ${senderID}`
 			+ (isGroup ? getLang("sendByGroup", (await threadsData.get(threadID)).threadName, threadID) : getLang("sendByUser"));
